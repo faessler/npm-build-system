@@ -1,16 +1,18 @@
-body {
-				margin: 0 auto; }
-				body main {
-								margin: 0 auto;
-								width: 980px;
-								background: red; }
-
-header {
-				margin: 0 auto;
-				width: 980px;
-				background: blue; }
-
-footer {
-				margin: 0 auto;
-				width: 980px;
-				background: green; }
+@media screen and (max-width: 980px) {
+	body {
+		width: 100%;
+		background: #fff;
+	}
+	header {
+		width: 100%;
+		background: #fff;
+	}
+	main {
+		width: 100%;
+		background: #fff;
+	}
+	footer {
+		width: 100%;
+		background: #fff;
+	}
+}

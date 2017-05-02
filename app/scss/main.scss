@@ -1,21 +1,56 @@
+// ============================== //
+// IMPORTING FONTS //
+// ============================== //
+/* stuff */
+
+
+
+// ============================== //
+// VENDOR //
+// ============================== //
+@import "vendor/variables";
+@import "vendor/reset";
+@import "vendor/bootstrap";
+
+
+
+// ============================== //
+// TOP LEVEL //
+// ============================== //
 body {
 	margin: 0 auto;
-
-	main {
-		margin: 0 auto;
-		width: 980px;
-		background: red;
-	}
+	background: $turkies;
 }
 
+
+
+// ============================== //
+// HEADER //
+// ============================== //
 header {
 	margin: 0 auto;
 	width: 980px;
-	background: blue;
+	background: $blue;
 }
 
+
+
+// ============================== //
+// HEADER //
+// ============================== //
+main {
+	margin: 0 auto;
+	width: 980px;
+	background: $red;
+}
+
+
+
+// ============================== //
+// FOOTER //
+// ============================== //
 footer {
 	margin: 0 auto;
 	width: 980px;
-	background: green;
+	background: $green;
 }
