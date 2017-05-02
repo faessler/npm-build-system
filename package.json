@@ -1,27 +1,29 @@
 {
-	"name": "npm-build-system",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/faessler/npm-build-system.git"
-	},
-	"author": "Jan Fässler",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/faessler/npm-build-system/issues"
-	},
-	"homepage": "https://github.com/faessler/npm-build-system#readme",
-	"devDependencies": {
-		"node-sass": "^4.5.2"
-	},
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"cp": "cp app/public-root-files/* dist/",
-		"scss": "node-sass --output-style nested --indent-type tab --indent-width 4 -o dist/css app/scss/"
-	}
+  "name": "npm-build-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --output-style compressed -o build/css app/scss/",
+    "build-js": "mkdirp build/js && browserify app/js/**.js > build/js/script.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faessler/npm-build-system.git"
+  },
+  "author": "Jan Fässler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/faessler/npm-build-system/issues"
+  },
+  "homepage": "https://github.com/faessler/npm-build-system#readme",
+  "devDependencies": {
+    "browserify": "^14.3.0",
+    "mkdirp": "^0.5.1",
+    "node-sass": "^4.5.2"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
 }
