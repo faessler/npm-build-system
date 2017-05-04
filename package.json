@@ -8,12 +8,13 @@
     "build-cp": "mkdirp build/ && rsync -a --exclude='css/' --exclude='js/' --exclude='img/' --exclude='fonts/' app/public-root/. build/",
     "build-html": "mkdirp build/ && rsync -a app/html/. build/",
 
-    "build-css": "node-sass --source-map true --include-path app/scss app/scss/include.scss build/css/main.css",
-	"watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "build-css": "node-sass --source-map true --include-path app/scss app/scss/includes.scss build/css/main.css",
+    "watch-css": "nodemon --watch ./app/scss -e scss -x \"npm run build-css\"",
 
-    "build-js": "mkdirp build/js && browserify app/js/**.js > build/js/main.min.js && uglifyjs build/js/main.min.js -c -o build/js/main.min.js --source-map-inline",
+    "build-js": "mkdirp build/js && browserify app/js/includes.js > build/js/main.min.js",
+	"watch-js": "nodemon --watch ./app/js -e js -x \"npm run build-js\"",
 
-    "bs": "browser-sync start --server 'build/' --files 'build/'"
+    "bs": "browser-sync start --server 'build/' --files 'app/' -x \"npm run build-js\""
   },
   "repository": {
     "type": "git",
@@ -30,8 +31,7 @@
     "browserify": "^14.3.0",
     "mkdirp": "^0.5.1",
     "node-sass": "^4.5.2",
-    "nodemon": "^1.11.0",
-    "uglify-js": "^2.8.22"
+    "nodemon": "^1.11.0"
   },
   "dependencies": {
     "jquery": "^3.2.1"

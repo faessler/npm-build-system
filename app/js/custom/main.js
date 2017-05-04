@@ -1,8 +1,6 @@
 // ============================== //
-// GET LIBRARIES FROM MODULES //
+// MAIN CUSTOM JS FILE //
 // ============================== //
-var $ = require('jquery');
-
 console.log('test');
 
 $(function() {
