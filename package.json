@@ -6,14 +6,11 @@
   "scripts": {
     "build": "npm run build-cp && npm run build-css && npm run build-js",
     "build-cp": "mkdirp build/ && rsync -a --exclude='css/' --exclude='js/' --exclude='img/' --exclude='fonts/' app/public-root/. build/",
-    "build-html": "mkdirp build/ && rsync -a app/html/. build/",
-
-    "build-css": "node-sass --source-map true --include-path app/scss app/scss/includes.scss build/css/main.css",
+    "build-pug": "pug ./app/pug/layouts/ -o ./build",
+    "build-css": "node-sass --source-map true --include-path app/scss app/scss/includes.scss build/css/main.min.css",
     "watch-css": "nodemon --watch ./app/scss -e scss -x \"npm run build-css\"",
-
     "build-js": "mkdirp build/js && browserify app/js/includes.js > build/js/main.min.js",
-	"watch-js": "nodemon --watch ./app/js -e js -x \"npm run build-js\"",
-
+    "watch-js": "nodemon --watch ./app/js -e js -x \"npm run build-js\"",
     "bs": "browser-sync start --server 'build/' --files 'app/' -x \"npm run build-js\""
   },
   "repository": {
@@ -31,7 +28,9 @@
     "browserify": "^14.3.0",
     "mkdirp": "^0.5.1",
     "node-sass": "^4.5.2",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "pug": "^2.0.0-rc.1",
+    "pug-cli": "^1.0.0-alpha6"
   },
   "dependencies": {
     "jquery": "^3.2.1"
