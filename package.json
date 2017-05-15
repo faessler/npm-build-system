@@ -8,8 +8,11 @@
     "build-cp": "mkdirp build/ && rsync -a --exclude='css/' --exclude='js/' --exclude='img/' --exclude='fonts/' app/public-root/. build/",
     "build-pug": "pug ./app/pug/layouts/ -o ./build",
     "build-css": "node-sass --source-map true --include-path app/scss app/scss/includes.scss build/css/main.min.css",
-    "watch-css": "nodemon --watch ./app/scss -e scss -x \"npm run build-css\"",
-    "build-js": "mkdirp build/js && browserify app/js/includes.js > build/js/main.min.js",
+	"build-js": "mkdirp build/js && browserify app/js/includes.js > build/js/main.min.js",
+	"watch": "npm run watch-cp && npm run watch-pug && npm run watch-css && npm run watch-js",
+	"watch-cp": "nodemon --watch ./app/public-root -e pug -x \"npm run build-pug\"",
+    "watch-pug": "nodemon --watch ./app/pug -e pug -x \"npm run build-pug\"",
+	"watch-css": "nodemon --watch ./app/scss -e scss -x \"npm run build-css\"",
     "watch-js": "nodemon --watch ./app/js -e js -x \"npm run build-js\"",
     "bs": "browser-sync start --server 'build/' --files 'app/' -x \"npm run build-js\""
   },
